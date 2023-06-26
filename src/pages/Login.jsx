@@ -23,6 +23,7 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify(user));
             toast.success("Login Success!");
             navigate("/")
+            window.location.reload();
         }).catch((err) => {
             toast.error(err.response.data.message);
             console.log(err)
