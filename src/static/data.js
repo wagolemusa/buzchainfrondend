@@ -647,4 +647,3 @@ export const navItems = [
     },
   ];
   
-Footer
