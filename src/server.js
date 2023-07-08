@@ -1,3 +1,3 @@
-export const server = "http://localhost:5000/api/v2";
+export const server = "https://busizchainbackend.onrender.com/api/v2";
 
-export const backend_url = "http://localhost:5000/"
+export const backend_url = "https://busizchainbackend.onrender.com/"
