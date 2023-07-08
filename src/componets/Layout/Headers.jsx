@@ -10,7 +10,8 @@ import DropDown from "./DropDown"
 import Navbar from "./Navbar"
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
-
+import Cart from '../cart/Cart';
+import Wishlist from "../Wishlist/Wishlist"
 
 
 const Header = ({ activeHeading }) => {
@@ -19,8 +20,9 @@ const Header = ({ activeHeading }) => {
     const [searchData, setSearchData] = useState(null);
     const [active, setActive] = useState(false)
     const [dropDown, setDropdown] = useState(false)
+    const [opeCart, setOpenCart] = useState(false)
+    const [openWishlist, setOpenWishlist] = useState(false)
 
-    console.log(" user data",user)
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -125,15 +127,23 @@ const Header = ({ activeHeading }) => {
                     <Navbar active={activeHeading} />
                 </div>
 
+                {/* wishList popup */}
                 <div className="flex">
-                    <div className="relative cursor-pointer mr-[15px]">
+                    <div className={`${styles.noramlFlex}`}>
+                    <div className="relative cursor-pointer mr-[15px]"
+                        onClick={() =>setOpenWishlist(true)}
+                    >
                         <AiOutlineHeart size={30} color="rgb(255 255 255 /83%)" />
                         <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                             0
                         </span>
                     </div>
+                    </div>
+                    {/* Shoping Cart */}
                     <div className="relative cursor-pointer mr-[15px]">
-                        <AiOutlineShoppingCart size={30} color="rgb(255 255 255 /83%)" />
+                        <AiOutlineShoppingCart size={30} color="rgb(255 255 255 /83%)" 
+                            onClick={() => setOpenCart(true)}
+                        />
                         <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                             0
                         </span>
@@ -152,6 +162,25 @@ const Header = ({ activeHeading }) => {
                         )
                        }
                     </div>
+
+                    {/* cart popup */}
+
+                    {
+                        opeCart ? (
+                            <Cart setOpenCart={setOpenCart} />
+                        ) :(
+                            null
+                        )
+                    }
+
+                    {/* wishlist popup */}
+                    {
+                        openWishlist ? (
+                            <Wishlist setOpenWishlist={setOpenWishlist} />
+                        ) :(
+                            null
+                        )
+                    }
                 </div>
             </div>
         </>

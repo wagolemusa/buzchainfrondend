@@ -1,12 +1,15 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { server } from "../server"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { useSelector } from 'react-redux'
 
 const Login = () => {
+    const { isAuthenticated } = useSelector((state) => state.user);
     const navigate = useNavigate();
+
     const [email, setEmail ] = useState();
     const [password, setPassword] = useState();
     const [visible, setVisible] = useState();
@@ -23,12 +26,18 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify(user));
             toast.success("Login Success!");
             navigate("/")
-            window.location.reload();
+            window.location.reload(true);
         }).catch((err) => {
             toast.error(err.response.data.message);
             console.log(err)
         })
     }
+
+    useEffect(() => {
+        if(isAuthenticated === true){
+            navigate("/");
+        }
+    }, []);
 
  return(
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">    
