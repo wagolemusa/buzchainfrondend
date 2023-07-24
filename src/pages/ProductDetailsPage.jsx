@@ -4,6 +4,7 @@ import Footer from "../componets/Layout/Footer";
 import Header from "../componets/Layout/Headers";
 import ProductDetails from "../componets/Products/ProductDetails"
 import { productData } from "../static/data";
+import SuggestedProduct from "../componets/Products/SuggestedProduct"
 
 const ProductDetailsPage = () => {
 
@@ -20,6 +21,9 @@ const ProductDetailsPage = () => {
       <div>
         <Header />
         <ProductDetails data={data} />
+        {
+          data && <SuggestedProduct data={data} />
+        }
         <Footer />
       </div>
     )
