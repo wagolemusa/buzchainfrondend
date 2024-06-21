@@ -231,7 +231,7 @@ const ProductDetailsInfo = ({data}) =>{
                                     <img src={data.shop.shop_avatar.url} className="w-[50px] rounded-full" alt="" />
 
                                     <div className="pl-3">
-                                        <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
+                                          <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
                                         <h5 className="pb-2 text-[15px]">
                                             ({data.shop.ratings}) Ratings
                                         </h5>
