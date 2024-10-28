@@ -11,7 +11,8 @@ import {
   BestSellingPage,
   EventPage,
   FaqPage,
-  ProductDetailsPage
+  ProductDetailsPage,
+  ProfilePage
 } from './routes/Routes'
 import { useEffect } from 'react';
 import Store from './redux/store';
@@ -43,6 +44,7 @@ function App() {
               <Route path='best-selling' element={<BestSellingPage />} />
               <Route path="events" element={<EventPage />} />
               <Route path="faq" element={<FaqPage />} />
+              <Route path="profile" element={<ProfilePage />} />
 
             </Routes>
 
