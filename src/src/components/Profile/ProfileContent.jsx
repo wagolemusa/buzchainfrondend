@@ -10,7 +10,7 @@ import {
     MdOutlinePassword,
     MdOutlineTrackChanges,
   } from "react-icons/md";
-import { Button } from "@material-ui/core";
+import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
 
 const ProfileContent = ({active}) =>{
